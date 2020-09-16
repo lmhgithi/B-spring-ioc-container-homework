@@ -14,9 +14,13 @@ public class GreetingController {
         this.greetingService = greetingService;
     }
 
+    private GreetingService getGreetingService() {
+        return new GreetingService();
+    }
+
     @GetMapping("/greet")
     public String greet() {
-        return greetingService.sayHi();
+        return getGreetingService().sayHi();
     }
 
 }
